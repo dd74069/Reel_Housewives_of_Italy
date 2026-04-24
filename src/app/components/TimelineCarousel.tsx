@@ -140,7 +140,7 @@ export function TimelineCarousel() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`relative flex ${isLeft ? 'md:justify-start' : 'md:justify-end'} justify-start`}
+                  className={`relative flex justify-start ${isLeft ? 'md:justify-start' : 'md:justify-end'}`}
                 >
                   {/* Mobile dot and content container */}
                   <div className="md:hidden w-full pl-10">
