@@ -16,4 +16,6 @@ export const router = createBrowserRouter([
       { path: 'sources', Component: Sources },
     ],
   },
-]);
+], {
+  basename: '/Reel_Housewives_of_Italy/',
+});
