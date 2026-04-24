@@ -3,11 +3,14 @@ import { ReelFemaleLogo } from './ReelFemaleLogo';
 
 export function Navbar() {
   const location = useLocation();
+  const basePath = import.meta.env.BASE_URL ?? '/';
+  const homePath = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
+  const timelineHref = `${basePath}#timeline`;
 
   const scrollToTimeline = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (location.pathname !== '/') {
-      window.location.href = '/#timeline';
+    if (location.pathname !== homePath && location.pathname !== `${homePath}/`) {
+      window.location.href = timelineHref;
     } else {
       const timelineSection = document.getElementById('timeline');
       timelineSection?.scrollIntoView({ behavior: 'smooth' });
