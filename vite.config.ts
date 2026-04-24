@@ -17,7 +17,6 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
-  base: '/Reel_Housewives_of_Italy/',
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if
@@ -25,13 +24,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  build: {
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html'),
-      },
-    },
-  },
   resolve: {
     alias: {
       // Alias @ to the src directory
