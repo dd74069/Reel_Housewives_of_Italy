@@ -1,11 +1,4 @@
 
   # Reel Housewives of Italy
-
-  This is a code bundle for Reel Housewives of Italy. The original project is available at https://www.figma.com/design/Ilk3QZMV1vpB2QWQylW4x1/Reel-Housewives-of-Italy.
-
-  ## Running the code
-
-  Run `npm i` to install the dependencies.
-
-  Run `npm run dev` to start the development server.
   
+My website, Reel Housewives of Italy, explores how Italian cinema has represented women across key historical moments, arguing that film both reflects and actively shapes the evolving roles of women in Italian society. By focusing on films such as “Rome, Open City”, “A Special Day”, “Divorce, Italian Style”, “Yesterday, Today, and Tomorrow”, and other documentaries/historic reels, the project traces a trajectory from fascist-era propaganda and postwar neorealism to modern critiques of gender norms. My central thesis is that portrayals of women in Italian cinema reveal broader cultural tensions between tradition and progress, domesticity and independence, and public versus private identity while also influencing how these roles are understood by audiences. This project is closely tied to course themes such as Italian identity, historical transformation, and the role of media in shaping social narratives. In particular, it engages with discussions of fascism, postwar reconstruction, and contemporary cultural shifts, showing how women’s experiences intersect with these larger developments. By combining film analysis with historical context, my website reflects the course’s interdisciplinary approach and demonstrates how cinema serves as a powerful lens for examining changes in Italian society. The website itself is a few pages: Timeline, Films, Spotlight Quiz, and Sources. The first two display the information over a general timeline with important events to women’s history in Italy and highlight the films separately. The quiz page provides a deeper interactive experience for the user to test their knowledge on the subject, and they earn a grade and appropriate title, depending on how well they did. The website is hosted via GitHub Pages, so it’s publicly visible to anyone who visits my GitHub repositories or uses the link.
