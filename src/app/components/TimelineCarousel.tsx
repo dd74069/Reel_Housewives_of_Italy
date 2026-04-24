@@ -113,19 +113,22 @@ export function TimelineCarousel() {
   };
 
   return (
-    <section id="timeline" className="min-h-screen bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10 py-20 px-6">
+    <section id="timeline" className="min-h-screen bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10 py-12 md:py-16 lg:py-20 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         <h2
-          className="text-5xl text-center mb-16 text-[#CE2B37]"
+          className="text-3xl md:text-4xl lg:text-5xl text-center mb-10 md:mb-12 lg:mb-16 text-[#CE2B37]"
           style={{ fontFamily: 'Rye, cursive' }}
         >
           Historical Timeline
         </h2>
 
         <div className="relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-2 bg-gradient-to-b from-[#009246] via-white to-[#CE2B37] -translate-x-1/2" />
+          {/* Desktop vertical line - hidden on mobile */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-2 bg-gradient-to-b from-[#009246] via-white to-[#CE2B37] -translate-x-1/2" />
+          {/* Mobile left line */}
+          <div className="md:hidden absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-[#009246] via-white to-[#CE2B37]" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             {events.map((event, index) => {
               const Icon = iconMap[event.icon];
               const isLeft = index % 2 === 0;
@@ -133,13 +136,67 @@ export function TimelineCarousel() {
               return (
                 <motion.div
                   key={event.id}
-                  initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
+                  initial={{ opacity: 0, x: 0 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`relative flex ${isLeft ? 'justify-start' : 'justify-end'}`}
+                  className={`relative flex ${isLeft ? 'md:justify-start' : 'md:justify-end'} justify-start`}
                 >
-                  <div className={`w-5/12 ${isLeft ? 'pr-12' : 'pl-12'}`}>
+                  {/* Mobile dot and content container */}
+                  <div className="md:hidden w-full pl-10">
+                    <div className="absolute left-1 top-6 w-3 h-3 bg-white border-3 border-[#CE2B37] rounded-full -translate-x-1 z-10" />
+                    <motion.button
+                      onClick={() => toggleExpand(event.id)}
+                      className="w-full text-left"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div className="bg-white rounded-lg shadow-lg border-2 border-[#009246] p-4 md:p-6 hover:border-[#CE2B37] transition-colors">
+                        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                          <Icon className="w-5 md:w-6 h-5 md:h-6 text-[#CE2B37] flex-shrink-0" />
+                          <span
+                            className="text-lg md:text-2xl text-[#009246]"
+                            style={{ fontFamily: 'Cinzel, serif' }}
+                          >
+                            {event.year}
+                          </span>
+                        </div>
+                        <h3 className="text-base md:text-xl mb-2 text-[#CE2B37]" style={{ fontFamily: 'Cinzel, serif' }}>
+                          {event.title}
+                        </h3>
+
+                        <AnimatePresence>
+                          {expandedId === event.id && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="pt-3 md:pt-4 border-t-2 border-[#009246]/20 mt-3 md:mt-4">
+                                <p className="text-xs md:text-sm lg:text-base text-gray-700 mb-3 md:mb-4 leading-relaxed">
+                                  {event.description}
+                                </p>
+                                <div className="bg-[#009246]/10 p-3 md:p-4 rounded">
+                                  <p className="text-xs md:text-sm text-gray-800">
+                                    <strong className="text-[#CE2B37]">Impact:</strong> {event.impact}
+                                  </p>
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+
+                        <p className="text-xs md:text-sm text-[#009246] mt-2 md:mt-3">
+                          {expandedId === event.id ? 'Click to collapse' : 'Click to expand'}
+                        </p>
+                      </div>
+                    </motion.button>
+                  </div>
+
+                  {/* Desktop layout - hidden on mobile */}
+                  <div className={`hidden md:block w-5/12 ${isLeft ? 'pr-12' : 'pl-12'}`}>
                     <motion.button
                       onClick={() => toggleExpand(event.id)}
                       className="w-full text-left"
@@ -190,20 +247,21 @@ export function TimelineCarousel() {
                     </motion.button>
                   </div>
 
-                  <div className="absolute left-1/2 top-6 w-4 h-4 bg-white border-4 border-[#CE2B37] rounded-full -translate-x-1/2 z-10" />
+                  {/* Desktop dot - hidden on mobile */}
+                  <div className="hidden md:block absolute left-1/2 top-6 w-4 h-4 bg-white border-4 border-[#CE2B37] rounded-full -translate-x-1/2 z-10" />
                 </motion.div>
               );
             })}
           </div>
         </div>
 
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center mt-12 md:mt-16">
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 bg-[#CE2B37] text-white px-8 py-4 rounded-lg hover:bg-[#009246] transition-colors shadow-lg"
+            className="flex items-center gap-2 bg-[#CE2B37] text-white px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-[#009246] transition-colors shadow-lg text-sm md:text-base"
             style={{ fontFamily: 'Cinzel, serif' }}
           >
-            <ArrowUp className="w-5 h-5" />
+            <ArrowUp className="w-4 md:w-5 h-4 md:h-5" />
             Back to Top
           </button>
         </div>

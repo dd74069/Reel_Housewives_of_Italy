@@ -69,68 +69,68 @@ const films: FilmData[] = [
 
 export function Films() {
   return (
-    <div className="min-h-screen pt-24 pb-12 px-6 bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10">
+    <div className="min-h-screen pt-20 md:pt-24 pb-8 md:pb-12 px-4 md:px-6 bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="max-w-7xl mx-auto"
       >
-        <FilmIcon className="w-20 h-20 text-[#CE2B37] mx-auto mb-6" />
+        <FilmIcon className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-[#CE2B37] mx-auto mb-4 md:mb-6" />
         <h1
-          className="text-5xl mb-6 text-center text-[#CE2B37]"
+          className="text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 text-center text-[#CE2B37]"
           style={{ fontFamily: 'Rye, cursive' }}
         >
           Featured Films
         </h1>
-        <p className="text-xl text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-base md:text-lg lg:text-xl text-gray-700 text-center mb-8 md:mb-12 max-w-3xl mx-auto px-2">
           Explore (some of) the films that shaped and reflected the evolution of women's roles in Italian society.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
           {films.map((film, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-[#009246] hover:border-[#CE2B37] transition-colors"
+              className="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-[#009246] hover:border-[#CE2B37] transition-colors flex flex-col"
             >
-              <div className="h-64 overflow-hidden bg-gray-200">
+              <div className="h-40 md:h-48 lg:h-64 overflow-hidden bg-gray-200">
                 <img
                   src={film.imageUrl}
                   alt={film.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-4 md:p-6 flex flex-col flex-1">
                 <h2
-                  className="text-2xl mb-3 text-[#CE2B37]"
+                  className="text-lg md:text-xl lg:text-2xl mb-2 md:mb-3 text-[#CE2B37]"
                   style={{ fontFamily: 'Cinzel, serif' }}
                 >
                   {film.title}
                 </h2>
 
-                <div className="flex items-center gap-6 mb-4 text-gray-600">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 md:gap-6 mb-3 md:mb-4 text-xs md:text-sm text-gray-600 overflow-hidden">
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>{film.year}</span>
+                    <Calendar className="w-4 h-4 flex-shrink-0" />
+                    <span className="truncate">{film.year}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <User className="w-4 h-4" />
-                    <span>{film.director}</span>
+                  <div className="flex items-center gap-2 md:flex-wrap">
+                    <User className="w-4 h-4 flex-shrink-0" />
+                    <span className="truncate md:truncate-none text-xs md:text-sm">{film.director}</span>
                   </div>
                 </div>
 
-                <div className="mb-4">
-                  <h3 className="font-bold text-[#009246] mb-2">Synopsis</h3>
-                  <p className="text-gray-700 leading-relaxed text-sm">
+                <div className="mb-3 md:mb-4 flex-1">
+                  <h3 className="font-bold text-[#009246] mb-1 md:mb-2 text-sm md:text-base">Synopsis</h3>
+                  <p className="text-gray-700 leading-relaxed text-xs md:text-sm">
                     {film.synopsis}
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-bold text-[#009246] mb-2">Social Impact</h3>
-                  <p className="text-gray-700 leading-relaxed text-sm">
+                  <h3 className="font-bold text-[#009246] mb-1 md:mb-2 text-sm md:text-base">Social Impact</h3>
+                  <p className="text-gray-700 leading-relaxed text-xs md:text-sm">
                     {film.impact}
                   </p>
                 </div>

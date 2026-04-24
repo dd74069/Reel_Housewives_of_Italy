@@ -338,35 +338,35 @@ export function Quiz() {
 
   if (!quizStarted) {
     return (
-      <div className="min-h-screen pt-24 pb-12 px-6 bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10">
+      <div className="min-h-screen pt-20 md:pt-24 pb-8 md:pb-12 px-4 md:px-6 bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <Film className="w-20 h-20 text-[#CE2B37] mx-auto mb-6" />
+          <Film className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-[#CE2B37] mx-auto mb-4 md:mb-6" />
           <h1
-            className="text-5xl mb-6 text-[#CE2B37]"
+            className="text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 text-[#CE2B37]"
             style={{ fontFamily: 'Rye, cursive' }}
           >
             Spotlight Quiz
           </h1>
           <h2
-            className="text-3xl mb-4 text-[#009246]"
+            className="text-xl md:text-2xl lg:text-3xl mb-3 md:mb-4 text-[#009246]"
             style={{ fontFamily: 'Cinzel, serif' }}
           >
             Beyond the Reel: The Evolution
             <br />
             of Italian Womanhood
           </h2>
-          <p className="text-xl text-gray-700 mb-12 leading-relaxed">
+          <p className="text-sm md:text-base lg:text-lg text-gray-700 mb-8 md:mb-12 leading-relaxed px-2">
             A 10-question journey through the cultural mirror of Italian cinema. See if you can spot the shift from social propaganda to cinematic liberation.
           </p>
           <motion.button
             onClick={startQuiz}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#CE2B37] text-white px-12 py-4 rounded-lg text-xl hover:bg-[#009246] transition-colors shadow-lg"
+            className="bg-[#CE2B37] text-white px-8 md:px-12 py-3 md:py-4 rounded-lg text-base md:text-lg lg:text-xl hover:bg-[#009246] transition-colors shadow-lg"
             style={{ fontFamily: 'Cinzel, serif' }}
           >
             Start Quiz
@@ -379,7 +379,7 @@ export function Quiz() {
   if (showResult) {
     const result = getResultInfo(score);
     return (
-      <div className="min-h-screen pt-24 pb-12 px-6 bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10">
+      <div className="min-h-screen pt-20 md:pt-24 pb-8 md:pb-12 px-4 md:px-6 bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -392,23 +392,23 @@ export function Quiz() {
             } : {}}
             transition={{ duration: 1, repeat: score === 10 ? Infinity : 0, repeatDelay: 2 }}
           >
-            <Award className={`w-24 h-24 mx-auto mb-6 ${result.color}`} />
+            <Award className={`w-12 md:w-16 lg:w-24 h-12 md:h-16 lg:h-24 mx-auto mb-4 md:mb-6 ${result.color}`} />
           </motion.div>
           <h2
-            className="text-4xl mb-4 text-[#CE2B37]"
+            className="text-2xl md:text-3xl lg:text-4xl mb-4 text-[#CE2B37]"
             style={{ fontFamily: 'Rye, cursive' }}
           >
             Quiz Complete!
           </h2>
           <motion.div
-            className="bg-white rounded-lg shadow-2xl p-12 border-4 border-[#009246] mb-8"
+            className="bg-white rounded-lg shadow-2xl p-4 md:p-8 lg:p-12 border-4 border-[#009246] mb-6 md:mb-8"
             animate={score === 10 ? {
               borderColor: ['#009246', '#CE2B37', '#FFD700', '#009246']
             } : {}}
             transition={{ duration: 2, repeat: score === 10 ? Infinity : 0 }}
           >
             <motion.p
-              className="text-6xl mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6"
               animate={score === 10 ? {
                 scale: [1, 1.2, 1],
                 color: ['#000000', '#CE2B37', '#009246', '#000000']
@@ -418,12 +418,12 @@ export function Quiz() {
               {score}/10
             </motion.p>
             <h3
-              className={`text-3xl mb-4 ${result.color}`}
+              className={`text-lg md:text-2xl lg:text-3xl mb-3 md:mb-4 ${result.color}`}
               style={{ fontFamily: 'Cinzel, serif' }}
             >
               {result.title}
             </h3>
-            <p className="text-xl text-gray-700 leading-relaxed">
+            <p className="text-xs md:text-sm lg:text-lg text-gray-700 leading-relaxed px-2">
               {result.description}
             </p>
           </motion.div>
@@ -431,10 +431,10 @@ export function Quiz() {
             onClick={retakeQuiz}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3 bg-[#009246] text-white px-8 py-4 rounded-lg text-xl hover:bg-[#CE2B37] transition-colors shadow-lg mx-auto"
+            className="flex items-center justify-center gap-2 md:gap-3 bg-[#009246] text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-sm md:text-base lg:text-lg hover:bg-[#CE2B37] transition-colors shadow-lg mx-auto"
             style={{ fontFamily: 'Cinzel, serif' }}
           >
-            <RotateCcw className="w-6 h-6" />
+            <RotateCcw className="w-4 md:w-5 lg:w-6 h-4 md:h-5 lg:h-6" />
             Retake Quiz
           </motion.button>
         </motion.div>
@@ -445,22 +445,22 @@ export function Quiz() {
   const currentQuestion = selectedQuestions[currentQuestionIndex];
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-6 bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10">
+    <div className="min-h-screen pt-20 md:pt-24 pb-8 md:pb-12 px-4 md:px-6 bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10">
       <div className="max-w-4xl mx-auto">
-        <div className="mb-8">
-          <div className="flex justify-between items-center mb-4">
-            <span className="text-lg text-gray-600" style={{ fontFamily: 'Cinzel, serif' }}>
-              Question {currentQuestionIndex + 1} of 10
+        <div className="mb-6 md:mb-8">
+          <div className="flex justify-between items-center mb-3 md:mb-4 gap-2">
+            <span className="text-xs md:text-sm lg:text-lg text-gray-600" style={{ fontFamily: 'Cinzel, serif' }}>
+              Q{currentQuestionIndex + 1}/10
             </span>
-            <span className="text-lg text-gray-600" style={{ fontFamily: 'Cinzel, serif' }}>
+            <span className="text-xs md:text-sm lg:text-lg text-gray-600" style={{ fontFamily: 'Cinzel, serif' }}>
               Score: {score}
             </span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-3">
+          <div className="w-full bg-gray-200 rounded-full h-2 md:h-3">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${((currentQuestionIndex + 1) / 10) * 100}%` }}
-              className="bg-gradient-to-r from-[#009246] to-[#CE2B37] h-3 rounded-full"
+              className="bg-gradient-to-r from-[#009246] to-[#CE2B37] h-2 md:h-3 rounded-full"
               transition={{ duration: 0.5 }}
             />
           </div>
@@ -472,19 +472,19 @@ export function Quiz() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
-            className="bg-white rounded-lg shadow-2xl p-8 border-4 border-[#009246]"
+            className="bg-white rounded-lg shadow-2xl p-4 md:p-6 lg:p-8 border-4 border-[#009246]"
           >
-            <h3 className="text-2xl mb-8 text-[#CE2B37]" style={{ fontFamily: 'Cinzel, serif' }}>
+            <h3 className="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-[#CE2B37]" style={{ fontFamily: 'Cinzel, serif' }}>
               {currentQuestion.question}
             </h3>
 
-            <div className="space-y-4 mb-8">
+            <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
               {currentQuestion.options.map((option, index) => {
                 const optionLetter = String.fromCharCode(65 + index);
                 const isCorrect = optionLetter === currentQuestion.correctAnswer;
                 const isSelected = option === selectedAnswer;
 
-                let buttonClasses = "w-full text-left p-4 rounded-lg border-2 transition-all";
+                let buttonClasses = "w-full text-left p-3 md:p-4 rounded-lg border-2 transition-all";
 
                 if (selectedAnswer === null) {
                   buttonClasses += " border-gray-300 hover:border-[#009246] hover:bg-[#009246]/5";
@@ -509,14 +509,14 @@ export function Quiz() {
                     whileHover={selectedAnswer === null ? { scale: 1.02 } : {}}
                     whileTap={selectedAnswer === null ? { scale: 0.98 } : {}}
                   >
-                    <div className="flex items-center gap-4">
-                      <span className="text-xl font-bold text-[#CE2B37]">{optionLetter}.</span>
-                      <span className="text-lg">{option}</span>
+                    <div className="flex items-start md:items-center gap-3 md:gap-4">
+                      <span className="text-lg md:text-xl font-bold text-[#CE2B37] flex-shrink-0">{optionLetter}.</span>
+                      <span className="text-sm md:text-base lg:text-lg text-left">{option}</span>
                       {selectedAnswer !== null && isCorrect && (
-                        <CheckCircle className="w-6 h-6 text-green-500 ml-auto" />
+                        <CheckCircle className="w-5 md:w-6 h-5 md:h-6 text-green-500 ml-auto flex-shrink-0" />
                       )}
                       {selectedAnswer !== null && isSelected && !answeredCorrectly && (
-                        <XCircle className="w-6 h-6 text-red-500 ml-auto" />
+                        <XCircle className="w-5 md:w-6 h-5 md:h-6 text-red-500 ml-auto flex-shrink-0" />
                       )}
                     </div>
                   </motion.button>
@@ -529,7 +529,7 @@ export function Quiz() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 onClick={nextQuestion}
-                className="w-full bg-[#CE2B37] text-white px-8 py-4 rounded-lg text-xl hover:bg-[#009246] transition-colors shadow-lg"
+                className="w-full bg-[#CE2B37] text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-sm md:text-base lg:text-lg hover:bg-[#009246] transition-colors shadow-lg"
                 style={{ fontFamily: 'Cinzel, serif' }}
               >
                 {currentQuestionIndex < selectedQuestions.length - 1 ? 'Next Question' : 'See Results'}

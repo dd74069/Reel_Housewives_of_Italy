@@ -62,52 +62,52 @@ const sources: Source[] = [
 
 export function Sources() {
   return (
-    <div className="min-h-screen pt-24 pb-12 px-6 bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10">
+    <div className="min-h-screen pt-20 md:pt-24 pb-8 md:pb-12 px-4 md:px-6 bg-gradient-to-b from-[#009246]/10 to-[#CE2B37]/10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="max-w-5xl mx-auto"
       >
-        <BookOpen className="w-20 h-20 text-[#CE2B37] mx-auto mb-6" />
+        <BookOpen className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-[#CE2B37] mx-auto mb-4 md:mb-6" />
         <h1
-          className="text-5xl mb-6 text-center text-[#CE2B37]"
+          className="text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 text-center text-[#CE2B37]"
           style={{ fontFamily: 'Rye, cursive' }}
         >
           Scholarly Sources
         </h1>
-        <p className="text-xl text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-sm md:text-base lg:text-lg text-gray-700 text-center mb-8 md:mb-12 max-w-3xl mx-auto px-2">
           Academic research and scholarly works that informed this exploration of women in Italian cinema.
         </p>
 
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           {sources.map((source, index) => (
             <motion.div
               key={source.number}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-xl p-8 border-2 border-[#009246] hover:border-[#CE2B37] transition-colors"
+              className="bg-white rounded-lg shadow-xl p-4 md:p-6 lg:p-8 border-2 border-[#009246] hover:border-[#CE2B37] transition-colors"
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 md:gap-4">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-[#CE2B37] rounded-full flex items-center justify-center">
-                    <span className="text-white text-xl font-bold" style={{ fontFamily: 'Cinzel, serif' }}>
+                  <div className="w-10 md:w-12 h-10 md:h-12 bg-[#CE2B37] rounded-full flex items-center justify-center">
+                    <span className="text-white text-base md:text-lg lg:text-xl font-bold" style={{ fontFamily: 'Cinzel, serif' }}>
                       {source.number}
                     </span>
                   </div>
                 </div>
-                <div className="flex-1">
-                  <p className="text-gray-800 leading-relaxed mb-4" style={{ textIndent: '-1.5rem', paddingLeft: '1.5rem' }}>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs md:text-sm lg:text-base text-gray-800 leading-relaxed mb-3 md:mb-4" style={{ textIndent: '-1.5rem', paddingLeft: '1.5rem' }}>
                     {source.citation}
                   </p>
                   <a
                     href={source.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[#009246] hover:text-[#CE2B37] transition-colors font-semibold"
+                    className="inline-flex items-center gap-2 text-[#009246] hover:text-[#CE2B37] transition-colors font-semibold text-xs md:text-sm"
                     style={{ fontFamily: 'Cinzel, serif' }}
                   >
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-3 md:w-4 h-3 md:h-4 flex-shrink-0" />
                     Access Source
                   </a>
                 </div>
@@ -116,8 +116,8 @@ export function Sources() {
           ))}
         </div>
 
-        <div className="mt-12 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg p-8 border-2 border-[#009246]">
-          <p className="text-gray-700 text-center italic">
+        <div className="mt-8 md:mt-12 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg p-4 md:p-6 lg:p-8 border-2 border-[#009246]">
+          <p className="text-xs md:text-sm lg:text-base text-gray-700 text-center italic px-2">
             These sources provided essential context and analysis for understanding the evolution of women's roles in Italian cinema and society throughout the 20th and 21st centuries.
           </p>
         </div>

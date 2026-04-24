@@ -1,22 +1,22 @@
 export function Footer() {
   return (
-    <footer className="bg-[#009246] text-white py-4 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p style={{ fontFamily: 'Cinzel, serif' }}>
+    <footer className="bg-[#009246] text-white py-3 md:py-4 px-4 md:px-6">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+        <p className="text-sm md:text-base text-center md:text-left" style={{ fontFamily: 'Cinzel, serif' }}>
           © {new Date().getFullYear()} Dante Dunham
         </p>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:gap-4 flex-wrap justify-center">
           <a
             href="https://www.linkedin.com/in/dante-dunham-916982320/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 hover:opacity-90 transition-opacity"
+            className="group flex items-center gap-2 md:gap-3 hover:opacity-90 transition-opacity text-xs md:text-sm"
           >
-            <div className="relative w-10 h-10 bg-white rounded-full flex items-center justify-center transition-transform duration-500 group-hover:[transform:rotateY(360deg)]">
-              <span className="text-[#0077B5] text-xl font-bold">in</span>
+            <div className="relative w-8 md:w-10 h-8 md:h-10 bg-white rounded-full flex items-center justify-center transition-transform duration-500 group-hover:[transform:rotateY(360deg)] flex-shrink-0">
+              <span className="text-[#0077B5] text-sm md:text-lg font-bold">in</span>
             </div>
-            <span style={{ fontFamily: 'Cinzel, serif' }}>
+            <span className="hidden sm:inline" style={{ fontFamily: 'Cinzel, serif' }}>
               Connect on LinkedIn
             </span>
           </a>
@@ -25,11 +25,11 @@ export function Footer() {
             href="https://www.instagram.com/dante__dunham/?hl=en"
             target="_blank"
             rel="noopener noreferrer"
-            className="group"
+            className="group flex items-center gap-2 md:gap-3 text-xs md:text-sm"
           >
-            <div className="relative w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:[transform:rotateY(360deg)]">
-              <div className="w-9 h-9 bg-white rounded-lg flex items-center justify-center">
-                <svg viewBox="0 0 24 24" className="w-6 h-6" fill="url(#instagram-gradient)">
+            <div className="relative w-8 md:w-10 h-8 md:h-10 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:[transform:rotateY(360deg)] flex-shrink-0">
+              <div className="w-7 md:w-9 h-7 md:h-9 bg-white rounded-lg flex items-center justify-center">
+                <svg viewBox="0 0 24 24" className="w-5 md:w-6 h-5 md:h-6" fill="url(#instagram-gradient)">
                   <defs>
                     <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
                       <stop offset="0%" style={{ stopColor: '#FD5949' }} />
@@ -41,6 +41,9 @@ export function Footer() {
                 </svg>
               </div>
             </div>
+            <span className="hidden sm:inline" style={{ fontFamily: 'Cinzel, serif' }}>
+              Follow on Instagram
+            </span>
           </a>
         </div>
       </div>

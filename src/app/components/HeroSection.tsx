@@ -7,7 +7,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center">
+    <section className="relative min-h-screen pt-20 md:pt-0 flex items-center justify-center px-4 md:px-6">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -15,17 +15,17 @@ export function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-3xl mx-auto px-6">
-        <div className="bg-white/95 backdrop-blur-sm p-12 rounded-lg shadow-2xl border-4 border-[#CE2B37]">
+      <div className="relative z-10 w-full max-w-3xl mx-auto">
+        <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 lg:p-12 rounded-lg shadow-2xl border-4 border-[#CE2B37]">
           <h2
-            className="text-4xl mb-6 text-[#009246] text-center"
+            className="text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-6 text-[#009246] text-center"
             style={{ fontFamily: 'Cinzel, serif' }}
           >
             Welcome to the Reel
             <br />
             Housewives of Italy
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed text-center">
+          <p className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed text-center">
             A visual journey through Italian cinema and its evolving portrayal of women in society. From the shadows of WWII fascism to the vibrant present day, this interactive timeline explores how Italian filmmakers have depicted women's roles, struggles, and triumphs throughout the nation's transformative history. Discover how the silver screen both reflected and shaped the changing position of women in Italian culture, politics, and domestic life.
           </p>
         </div>
@@ -33,15 +33,15 @@ export function HeroSection() {
 
       <button
         onClick={scrollToTimeline}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white hover:text-[#CE2B37] transition-colors group"
+        className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white hover:text-[#CE2B37] transition-colors group"
       >
         <span
-          className="text-xl tracking-wider"
+          className="text-base md:text-lg lg:text-xl tracking-wider"
           style={{ fontFamily: 'Cinzel, serif' }}
         >
           Scroll for Timeline
         </span>
-        <ChevronDown className="w-8 h-8 animate-bounce" />
+        <ChevronDown className="w-6 md:w-8 h-6 md:h-8 animate-bounce" />
       </button>
     </section>
   );
